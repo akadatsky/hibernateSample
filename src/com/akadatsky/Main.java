@@ -14,14 +14,13 @@ public class Main {
 
         System.out.println("=============================================================");
 
-        studentDao.insertStudent(new Student("Ivan", 25));
-        studentDao.insertStudent(new Student("Alex", 30));
-        studentDao.insertStudent(new Student("Sofia", 28));
-        studentDao.insertStudent(new Student("Igor", 35));
+        studentDao.insert(new Student("Ivan", 25));
+        studentDao.insert(new Student("Alex", 30));
+        studentDao.insert(new Student("Sofia", 28));
+        studentDao.insert(new Student("Igor", 35));
 
 
         System.out.println("Students: " + studentDao.getAll());
-        System.out.println("Students Sql: " + studentDao.getAllSql());
 
         System.out.println("=============================================================");
 
@@ -41,8 +40,10 @@ public class Main {
         System.out.println("=============================================================");
 
 
-        studentDao.deleteByName("Ivan");
-        studentDao.deleteByName("Alex");
+        student = studentDao.getByName("Ivan");
+        studentDao.delete(student);
+        student = studentDao.getByName("Alex");
+        studentDao.delete(student);
         System.out.println("Students: " + studentDao.getAll());
 
         System.out.println("=============================================================");
